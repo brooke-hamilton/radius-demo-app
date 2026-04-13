@@ -12,7 +12,7 @@ resource app 'Applications.Core/applications@2023-10-01-preview' = {
 
 resource frontend 'Applications.Core/containers@2023-10-01-preview' = {
   name: 'frontend'
-  properties: {
+  properties: any({
     application: app.id
     container: {
       image: 'ghcr.io/brooke-hamilton/eshop-frontend:latest'
@@ -27,13 +27,13 @@ resource frontend 'Applications.Core/containers@2023-10-01-preview' = {
         source: backend.id
       }
     }
-    // codeReference: 'src/frontend/app.ts#L1' — added to app.json after types are published
-  }
+    codeReference: 'src/frontend/app.ts#L1'
+  })
 }
 
 resource backend 'Applications.Core/containers@2023-10-01-preview' = {
   name: 'backend'
-  properties: {
+  properties: any({
     application: app.id
     container: {
       image: 'ghcr.io/brooke-hamilton/eshop-backend:latest'
@@ -48,15 +48,15 @@ resource backend 'Applications.Core/containers@2023-10-01-preview' = {
         source: cache.id
       }
     }
-    // codeReference: 'src/backend/server.ts#L1' — added to app.json after types are published
-  }
+    codeReference: 'src/backend/server.ts#L1'
+  })
 }
 
 resource cache 'Applications.Datastores/redisCaches@2023-10-01-preview' = {
   name: 'cache'
-  properties: {
+  properties: any({
     application: app.id
     environment: application
-    // codeReference: 'src/cache/redis.ts#L1' — added to app.json after types are published
-  }
+    codeReference: 'src/cache/redis.ts#L1'
+  })
 }
