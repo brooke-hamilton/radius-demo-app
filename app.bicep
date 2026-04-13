@@ -47,6 +47,9 @@ resource backend 'Applications.Core/containers@2023-10-01-preview' = {
       cache: {
         source: cache.id
       }
+      notifications: {
+        source: notifications.id
+      }
     }
     // codeReference: 'src/backend/server.ts#L1' — added to app.json after types are published
   }
@@ -58,5 +61,14 @@ resource cache 'Applications.Datastores/redisCaches@2023-10-01-preview' = {
     application: app.id
     environment: application
     // codeReference: 'src/cache/redis.ts#L1' — added to app.json after types are published
+  }
+}
+
+resource notifications 'Applications.Messaging/rabbitMQQueues@2023-10-01-preview' = {
+  name: 'notifications'
+  properties: {
+    application: app.id
+    environment: application
+    // codeReference: 'src/notifications/queue.ts#L1' — added to app.json after types are published
   }
 }
