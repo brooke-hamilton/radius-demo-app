@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-04-13T15:29:17Z",
+  "sourceFile": "app.bicep",
+  "application": {
+    "resources": [
+      {
+        "appDefinitionLine": 6,
+        "connections": [
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/frontend"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Datastores/redisCaches/cache"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Messaging/rabbitMQQueues/notifications"
+          }
+        ],
+        "diffHash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop",
+        "name": "eshop",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Core/applications"
+      },
+      {
+        "appDefinitionLine": 34,
+        "codeReference": "src/backend/server.ts#L1",
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Datastores/redisCaches/cache"
+          },
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Messaging/rabbitMQQueues/notifications"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/frontend"
+          }
+        ],
+        "diffHash": "sha256:bff5e98d63add27761e35a388788abbdd3dc078989aa3fb68f092e4093e73ce0",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend",
+        "name": "backend",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Core/containers"
+      },
+      {
+        "appDefinitionLine": 13,
+        "codeReference": "src/frontend/app.ts#L1",
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          }
+        ],
+        "diffHash": "sha256:46968e7f1909bc89147ee52ea325bd4edad327a0a36ec1b3a271ddd670e7e922",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/frontend",
+        "name": "frontend",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Core/containers"
+      },
+      {
+        "appDefinitionLine": 58,
+        "codeReference": "src/cache/redis.ts#L1",
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          }
+        ],
+        "diffHash": "sha256:00d3c6046343a0d6b2a7af437ce3e42d52eaea9fdac6dfcd9cc62aadb098927e",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Datastores/redisCaches/cache",
+        "name": "cache",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Datastores/redisCaches"
+      },
+      {
+        "appDefinitionLine": 67,
+        "codeReference": "src/notifications/queue.ts#L1",
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          }
+        ],
+        "diffHash": "sha256:00d3c6046343a0d6b2a7af437ce3e42d52eaea9fdac6dfcd9cc62aadb098927e",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Messaging/rabbitMQQueues/notifications",
+        "name": "notifications",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Messaging/rabbitMQQueues"
+      }
+    ]
+  }
+}
