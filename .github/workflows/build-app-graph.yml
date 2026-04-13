@@ -1,0 +1,17 @@
+# Build and commit the static application graph artifact on pushes that modify app.bicep.
+# Uses the Radius reusable workflow to compile the Bicep definition into a graph JSON file.
+name: build-app-graph
+
+on:
+  push:
+    paths:
+      - app.bicep
+
+jobs:
+  build-graph:
+    permissions:
+      contents: write
+    uses: radius-project/radius/.github/workflows/__build-app-graph.yml@002-github-app-graph-viz
+    with:
+      app_file: app.bicep
+      artifact_path: .radius/static/app.json

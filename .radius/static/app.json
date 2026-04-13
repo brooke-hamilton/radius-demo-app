@@ -1,0 +1,96 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-04-13T14:46:00Z",
+  "sourceFile": "app.bicep",
+  "application": {
+    "resources": [
+      {
+        "appDefinitionLine": 6,
+        "connections": [
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/frontend"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Datastores/redisCaches/cache"
+          }
+        ],
+        "diffHash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop",
+        "name": "eshop",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Core/applications"
+      },
+      {
+        "appDefinitionLine": 34,
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Datastores/redisCaches/cache"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/frontend"
+          }
+        ],
+        "diffHash": "sha256:0e145345048c85695ec4384bbb9554b96cd15a527fb8d47ebf88d8cb5bfc9d33",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend",
+        "name": "backend",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Core/containers",
+        "codeReference": "src/backend/server.ts#L1"
+      },
+      {
+        "appDefinitionLine": 13,
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          }
+        ],
+        "diffHash": "sha256:8450f4c43f70a60bde6a5d911117a05ac2ebb37ec9e9bc27f9dfcdcd4a237d28",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/frontend",
+        "name": "frontend",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Core/containers",
+        "codeReference": "src/frontend/app.ts#L1"
+      },
+      {
+        "appDefinitionLine": 55,
+        "connections": [
+          {
+            "direction": "Outbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/applications/eshop"
+          },
+          {
+            "direction": "Inbound",
+            "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Core/containers/backend"
+          }
+        ],
+        "diffHash": "sha256:00d3c6046343a0d6b2a7af437ce3e42d52eaea9fdac6dfcd9cc62aadb098927e",
+        "id": "/planes/radius/local/resourcegroups/default/providers/Applications.Datastores/redisCaches/cache",
+        "name": "cache",
+        "outputResources": [],
+        "provisioningState": "Succeeded",
+        "type": "Applications.Datastores/redisCaches",
+        "codeReference": "src/cache/redis.ts#L1"
+      }
+    ]
+  }
+}
