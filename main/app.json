@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-04-13T15:29:11Z",
+  "generatedAt": "2026-04-13T15:48:04Z",
   "sourceFile": "app.bicep",
   "application": {
     "resources": [
       {
-        "appDefinitionLine": 6,
+        "appDefinitionLine": 8,
         "connections": [
           {
             "direction": "Inbound",
@@ -28,7 +28,7 @@
         "type": "Applications.Core/applications"
       },
       {
-        "appDefinitionLine": 34,
+        "appDefinitionLine": 36,
         "codeReference": "src/backend/server.ts#L1",
         "connections": [
           {
@@ -52,7 +52,7 @@
         "type": "Applications.Core/containers"
       },
       {
-        "appDefinitionLine": 13,
+        "appDefinitionLine": 15,
         "codeReference": "src/frontend/app.ts#L1",
         "connections": [
           {
@@ -72,7 +72,7 @@
         "type": "Applications.Core/containers"
       },
       {
-        "appDefinitionLine": 55,
+        "appDefinitionLine": 57,
         "codeReference": "src/cache/redis.ts#L1",
         "connections": [
           {
