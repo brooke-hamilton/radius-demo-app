@@ -14,3 +14,4 @@ jobs:
     uses: radius-project/radius/.github/workflows/__build-app-graph.yml@002-github-app-graph-viz
     with:
       app_file: app.bicep
+      workflow_source_ref: 002-github-app-graph-viz
