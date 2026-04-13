@@ -1,5 +1,7 @@
 extension radius
 
+// Demo refresh: trigger graph workflow with the published orphan-branch fixes.
+
 @description('The Radius Application — a simple e-commerce app with frontend, backend API, and Redis cache.')
 param application string
 
